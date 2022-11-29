@@ -1,0 +1,224 @@
+/* Custom Properties */
+:root {
+  /* Fonts */
+  --headingfont: "PT Sans", sans-serif;
+  --aditional: "Open Sans", sans-serif;
+  --paragraphfont: "League Spartan", sans-serif;
+
+  /* Colors */
+  --g_primary: #21f55c;
+  --g_secondary: hsl(142, 76%, 36%);
+  --g_tertiary: hsl(142, 72%, 29%);
+
+  /* Other Colors */
+  --footer-dark: #000000;
+  --oxford-blue: hsl(224, 34%, 13%);
+  --maximum-red: hsl(0, 72%, 51%);
+  --mint-cream: hsl(146, 41%, 97%);
+  --cadet-gray: hsl(215, 20%, 65%);
+  --light-gray: hsl(216, 12%, 84%);
+  --gainsboro: hsl(220, 13%, 91%);
+  --white_70: hsla(0, 0%, 100%, 0.7);
+  --gunmetal: hsl(215, 28%, 17%);
+  --manatee: hsl(218, 11%, 65%);
+  --mango: hsl(43, 96%, 56%);
+  --white: hsl(0, 0%, 100%);
+}
+/* Custom Properties */
+
+/* Globals */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /*Box Model Hack By Paul Irish*/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem; /* 1 rem = 10 px*/
+  line-height: 2;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--headingfont);
+  margin: 0 0 3.5rem 0;
+}
+h1 {
+  font-size: 5.5rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3.3rem;
+}
+a {
+  text-decoration: none;
+  color: var(--footer-dark);
+}
+
+/* Utility First */
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem; /*New form in CSS for separation*/
+}
+
+.order-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-items > span {
+  font-size: 2rem;
+  font-family: var(--headingfont);
+}
+
+.order-items > span:hover {
+  color: var(--g_primary);
+}
+
+/* Footer */
+/* .footer-more {
+    background-image: linear-gradient(
+        to bottom,
+        transparent 50%,
+        #212529 50%,
+        #212529 100%
+      ),
+      url(../images/sin.png);
+    background-position: center, top left;
+    background-repeat: no-repeat;
+    background-size: 100%, 100rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-more {
+      background-image: linear-gradient(
+          to left,
+          transparent 50%,
+          #212529 50%,
+          #212529 100%
+        ),
+        url(../images/sin.png);
+      background-position: left center;
+      padding: 10rem 0;
+      background-size: 100%, 130rem;
+    }
+  }
+  
+  .footer-more-flex {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 768px) {
+    .footer-more-flex {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: unset;
+      column-gap: 10rem;
+    }
+  }
+  
+  .footer-contact {
+    grid-row: 1 / 2;
+    color: #fff;
+    padding: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-contact {
+      grid-column: 1 / 2;
+    }
+  } */
+  
+
+
+.footer {
+  background-color: var(--footer-dark);
+  padding-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.container-footer {
+  max-width: 100rem;
+  width: 90%;
+  width: min(90%, 100rem);
+  margin: 0 auto;
+}
+
+.bar {
+  padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  display: block;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.logo:hover {
+  color: var(--g_primary);
+}
+
+.logo__bold {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .nav-foot {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.nav-foot__link {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--gainsboro);
+}
+
+.nav-foot__link:hover {
+  color: var(--g_primary);
+}
+
+@media (min-width: 768px) {
+  .p-foot {
+    font-family: var(--paragraphfont);
+    color: var(--gainsboro);
+  }
+}
+
+.container-footer .p-foot {
+  font-family: var(--paragraphfont);
+  color: var(--gainsboro);
+}
+
+
