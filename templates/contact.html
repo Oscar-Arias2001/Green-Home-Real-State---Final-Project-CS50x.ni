@@ -1,0 +1,57 @@
+{% extends "layout.html" %} {% block title%}Contacto{% endblock %} {% block
+content%}
+
+<div class="content">
+  <div class="content-b">
+    <h1 class="brand">Contact <span>Us</span></h1>
+
+    <div class="contact-wrapper animate__animated animate__bounceInUp">
+      <div class="contact-form p-5">
+        <h3>Contáctanos</h3>
+        <form class="" action="">
+          <p>
+            <label for="fullname">Nombre Completo</label>
+            <input type="text" name="fullname" id="fullname" />
+          </p>
+          <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </p>
+          <p>
+            <label for="phone">Teléfono</label>
+            <input type="tel" name="phone" id="phone" />
+          </p>
+          <p>
+            <label for="affair">Asunto</label>
+            <input type="text" name="affair" id="affair" />
+          </p>
+          <p class="block">
+            <label>Mensaje</label>
+            <textarea name="message" rows="3"></textarea>
+          </p>
+          <p class="block">
+            <button type="submit">Enviar</button>
+          </p>
+        </form>
+      </div>
+      <div class="contact-info p-5">
+        <h4>Más Información</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Managua, Nicaragua.</li>
+          <li><i class="fas fa-phone"></i> (+505) 7682 4820</li>
+          <li>
+            <i class="fas fa-envelope-open-text"></i>
+            greenhomerealstate@gmail.com
+          </li>
+        </ul>
+        <p>
+          Queremos apoyar a nuestros usuarios en todo su proceso de venta de su
+          propiedad o búsqueda de su nuevo hogar.
+        </p>
+        <p><i class="fas fa-duotone fa-city"></i> Green Home Real State</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

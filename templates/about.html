@@ -1,0 +1,84 @@
+{% extends "layout.html" %} {% block title%}Acerca de{% endblock %} {% block
+content%}
+
+<!-- Cover -->
+<section class="initial">
+  <div class="initial__content">
+    <h1 class="initial__content--h1 initial__content--animation initial__content--fadeInUp">
+      Un intermediario de confianza a su alcance
+    </h1>
+    <p class="initial__content--animation initial__content--fadeInUp p-3">
+      Green Home Real State, es una empresa digital y servicio web de fácil
+      acceso al público en general, con el fin de facilitar el proceso de compra
+      y venta de bienes raíces en Nicaragua.
+    </p>
+  </div>
+</section>
+
+<main class="contenedor_about">
+    <h1 class="text-center m-4">Acerca de Nosotros</h1>
+    <div class="about">
+        <div class="about__content p-3">
+            <p>Green Home Real Estate es un medio digital dinámico y desafiante que ofrece a nuestros clientes la mejor opción en el mercado inmobiliario, ganándose su confianza. En la actualidad es necesario de medios modernos y digitales como un sitio Web de clasificados en línea, que sean una herramienta que faciliten las transcciones comerciales entre las personas.</p>
+            <p>Tras esto nació una idea, que se concentra a partir del gran potencial del mercado de bienes inmuebles. Así es como surge Green Home Real State, una nueva tendencia y alternativa para satisfacer las altas demandas del mercado inmobiliario.</p>
+            <p>Nos hemos propuesto ser un proveedor inmobiliario de excelencia; donde las buenas relaciones, el respeto, la confianza y la seriedad son nuestro principal eje de acción.  Nuestro objetivo es liderar el mercado inmobiliario basado en relaciones de respeto, confianza y seriedad con nuestros clientes.</p>
+        </div>
+        <div class="carousel slide about__img" id = "mainSlider" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval ="2500">
+                    <img src="../static/images/slider1.jpg" alt="Imagen de casa" class="d-block w-100 border-light" loading="lazy">
+                </div>
+                <div class="carousel-item" data-bs-interval ="2500">
+                    <img src="../static/images/slider2.jpg" alt="Imagen de casa" class="d-block w-100 border-light" loading="lazy">
+                </div>
+                <div class="carousel-item" data-bs-interval ="2500">
+                    <img src="../static/images/slider3.jpg" alt="Imagen de casa" class="d-block w-100 border-light" loading="lazy">
+                </div>
+                <div class="carousel-item" data-bs-interval ="2500">
+                    <img src="../static/images/slider4.jpg" alt="Imagen de casa" class="d-block w-100 border-light" loading="lazy">
+                </div>
+                <div class="carousel-item" data-bs-interval ="2500">
+                    <img src="../static/images/slider5.jpg" alt="Imagen de casa" class="d-block w-100 border-light" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section class="contenedor_about">
+    <div class="nosotros">
+        <img class="nosotros__imagen" src="../static/images/team.jpg" alt="Imagen banner." loading="lazy">
+        <div class="nosotros__contenido">
+            <h1>Eficiencia. Transparencia. Control.</h1>
+            <p class="text-center p-5">Green Home ha desarrollado una plataforma para el mercado inmobiliario que permite a los compradores y vendedores realizar fácilmente una transacción por su cuenta. La plataforma impulsa la eficiencia, la transparencia de costes y el control en manos de los consumidores. Green Home es el sector inmobiliario redefinido.</p>
+        </div>
+        
+    </div>
+
+</section>
+
+<section id="call-to-action">
+    <div class="contenedor-call">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <h2 class="text-center">Encuentra el mejor lugar para vivir</h2>
+            <p class="text-center">Green Home Real State es la manera más fácil de vender tu propiedad o de encontrar el hogar de tus sueños. Queremos apoyarte en este proceso por ello somos la solución más rápida y eficiente en comercialización de bienes inmuebles.</p>
+          <div class="block">
+            <a class="neon-butt text-center" href="">
+                <span id="span1"></span>
+                <span id="span2"></span>
+                <span id="span3"></span>
+                <span id="span4"></span>
+                Contáctanos
+            </a>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+
+
+
+{% endblock %}
