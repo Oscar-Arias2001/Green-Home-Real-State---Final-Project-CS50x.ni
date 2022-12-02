@@ -28,6 +28,8 @@ def log_in():
     return render_template("log_in.html")
 
 
-
+@app.route("/enter_propertie")
+def enter_propertie():
+    return render_template("enter_propertie.html")
 
     

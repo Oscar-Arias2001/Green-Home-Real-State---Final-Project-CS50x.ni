@@ -1,72 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/log_in.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <!-- WebSite Meta Information -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Mobile -->
+    <meta name="robots" content="index,follow" />
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Green Home Real State, we are a web service of easy access to the general public, with the purpose of being a trusted intermediary to facilitate the process of buying and selling real estate in Nicaragua."
+    />
+    <meta name="author" content="Oscar Daniel Arias Guzmán." />
+    <meta name="copyright" content="Oscar Daniel Arias Guzmán." />
+    <meta name="keywords" content="Real State, casa, casas, green, home" />
+    <title>Green Home Real State - Log in</title>
+    <link rel="icon" href="page.ico" />
+    <!-- Adding web page tab icon -->
+
+    <!-- Place pageIco.ico in the root directory -->
+
+    <!-- Adding the normalize tool for correct rendering in a variety of browsers -->
+    <link
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+      rel="preload"
+      as="style"
+    />
+    <!-- Preload -->
+    <link
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+      rel="stylesheet"
+    />
+
+    <!-- Adding styles to the web site with the css language -->
+    <link
+      href="{{ url_for('static', filename='css/log_in.css') }}"
+      rel="preload"
+      as="style"
+    />
+    <!-- Preload -->
+    <link
+      href="{{ url_for('static', filename='css/log_in.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Adding fonts styles from google fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      crossorigin="crossorigin"
+      as="font"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
     <div class="container-form sign-up">
-        <div class="welcome-back">
-            <div class="message">
-                <h2>Bienvenido a Green Home Real State</h2>
-                <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
-                <button class="sign-up-btn">Iniciar Sesion</button>
-            </div>
+      <div class="welcome-back">
+        <div class="message">
+          <h2>Bienvenido a Green Home Real State</h2>
+          <p>Si ya tienes una cuenta por favor inicia sesión aquí.</p>
+          <button class="sign-up-btn">Iniciar Sesión</button>
         </div>
-        <form class="formulario">
-            <h2 class="create-account">Crear una cuenta</h2>
-            <div class="iconos">
-                <div class="border-icon">
-                    <i class='bx bxl-instagram'></i>
-                </div>
-                <div class="border-icon">
-                    <i class='bx bxl-linkedin' ></i>
-                </div>
-                <div class="border-icon">
-                    <i class='bx bxl-facebook-circle' ></i>
-                </div>
-            </div>
-            <p class="cuenta-gratis">Crear una cuenta gratis</p>
-            <input type="text" placeholder="Nombre completo">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Contraseña">
-            <input type="button" value="Registrarse">
-        </form>
+      </div>
+      <form class="formulario">
+        <h2 class="create-account">Crear cuenta Green Home</h2>
+
+        <p class="cuenta-gratis">Crear una cuenta gratis</p>
+        <input type="text" placeholder="Nombre completo" />
+        <input type="email" placeholder="Email" />
+        <input list="pais" type="text" placeholder="País" />
+        <datalist id="pais">
+          <option value="N"></option>
+        </datalist>
+        <input type="text" placeholder="Domicilio" />
+        <input type="text" placeholder="Telefóno" />
+        <input type="password" placeholder="Contraseña" />
+        <input type="button" value="Registrarse" />
+      </form>
     </div>
     <div class="container-form sign-in">
-        <form class="formulario">
-            <h2 class="create-account">Iniciar Sesion</h2>
-            <div class="iconos">
-                <div class="border-icon">
-                    <i class='bx bxl-instagram'></i>
-                </div>
-                <div class="border-icon">
-                    <i class='bx bxl-linkedin' ></i>
-                </div>
-                <div class="border-icon">
-                    <i class='bx bxl-facebook-circle' ></i>
-                </div>
-            </div>
-            <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Contraseña">
-            <input type="button" value="Iniciar Sesion">
-        </form>
-        <div class="welcome-back">
-            <div class="message">
-                <h2>Bienvenido de nuevo</h2>
-                <p>Si aun no tienes una cuenta por favor registrese aqui</p>
-                <button class="sign-in-btn">Registrarse</button>
-            </div>
+      <form class="formulario">
+        <h2 class="create-account">Iniciar Sesión</h2>
+        <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Contraseña" />
+        <input type="button" value="Iniciar Sesion" />
+      </form>
+      <div class="welcome-back">
+        <div class="message">
+          <h2>Bienvenido Nuevamente a Green Home Real State</h2>
+          <p>Si aún no tienes una cuenta por favor registrese aquí.</p>
+          <button class="sign-in-btn">Registrarse</button>
         </div>
+      </div>
     </div>
-</body>
-<script src="../static/script.js"></script>
+
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+  </body>
 </html>
