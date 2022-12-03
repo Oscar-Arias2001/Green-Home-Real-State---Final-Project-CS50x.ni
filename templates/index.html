@@ -9,7 +9,12 @@ content%}
       cocina?, entonces estás en el lugar indicado, explora nuestro sitio y
       conoce todas las opciones posibles.
     </p>
-    <a type="button" class="call-butt text-center">Explorar</a>
+    <a
+      href="{{ url_for('properties') }}"
+      type="button"
+      class="btn btn-dark btn-lg p-2 text-center"
+      >Explorar</a
+    >
   </div>
   <div>
     <img src="../static/images/home.png" alt="Imagen de casas" loading="lazy" />
@@ -106,7 +111,241 @@ content%}
   </div>
 </section>
 
-<div
+<!-- Testimoniales -->
+<section>
+  <h1 class="text-center mb-0 pt-3">Nuestros Usuarios</h1>
+  <div class="body-test">
+    <div class="slide-container swiper">
+      <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial1.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">María Robles</h2>
+              <p class="description">
+                Green Home es el mejor servicio web de bienes raíces, el cual te
+                permite acceder a una gran cantidad de opciones en cuanto a
+                propiedades, una gran tendencia.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial2.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">Sergio Chang</h2>
+              <p class="description">
+                Gracias a Green Home, logré encontrar la casa de mis sueños a un
+                excelente precio, es increíble la gran cantidad de opciones, en
+                esta comunidad tan increíble.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial3.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">Matías Lacayo</h2>
+              <p class="description">
+                Agardecido con este servicio inmobiliario, es una nueva manera
+                de vender tus propiedades y obtener un precio justo, sin
+                necesidad de agentes de bienes raíces, Green Home es el futuro.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial4.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">José Martínez</h2>
+              <p class="description">
+                Este servicio me permitió encontrar el lugar perfecto para
+                empezar mi negocio, a un excelente precio y con muchas opciones
+                de los diferentes venededores que publican en esta plataforma.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial5.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">Stephanie Dell</h2>
+              <p class="description">
+                Tengo 1 mes de llegar a Nicaragua, estaba buscando un
+                apartamento y gracias a Green Home logré encontrarlo de una
+                manera rápida y fácil, esta plataforma es la mejor en lo que
+                hace.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial6.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">Víctor Rivas</h2>
+              <p class="description">
+                Green Home Real State, me permitió cerrar un excelente trato a
+                un buen precio por la venta de mi antigua bodega, este medio
+                digital facilita muy dinámico para los usuarios.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial7.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">David Dell</h2>
+              <p class="description">
+                The lorem text the section that contains header with having open
+                functionality. Lorem dolor sit amet consectetur adipisicing
+                elit.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial8.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">David Dell</h2>
+              <p class="description">
+                The lorem text the section that contains header with having open
+                functionality. Lorem dolor sit amet consectetur adipisicing
+                elit.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+          <div class="tarjeta swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="tarjeta-image">
+                <img
+                  src="../static/images/testimonial9.jpg"
+                  alt=""
+                  class="tarjeta-img"
+                />
+              </div>
+            </div>
+
+            <div class="tarjeta-content">
+              <h2 class="nombre">David Dell</h2>
+              <p class="description">
+                The lorem text the section that contains header with having open
+                functionality. Lorem dolor sit amet consectetur adipisicing
+                elit.
+              </p>
+
+              <button class="button">View More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- <div
   id="carouselExampleCaptions"
   class="carousel slide"
   data-bs-ride="carousel"
@@ -174,6 +413,6 @@ content%}
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div> -->
 
 {% endblock %}

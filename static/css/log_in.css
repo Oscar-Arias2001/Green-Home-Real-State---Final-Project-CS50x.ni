@@ -1,3 +1,24 @@
+:root {
+  /* Colors */
+  --g_primary: #21f55c;
+  --g_secondary: hsl(142, 76%, 36%);
+  --g_tertiary: hsl(142, 72%, 29%);
+
+  /* Other Colors */
+  --footer-dark: #000000;
+  --oxford-blue: hsl(224, 34%, 13%);
+  --maximum-red: hsl(0, 72%, 51%);
+  --mint-cream: #f2e98a;
+  --cadet-gray: hsl(215, 20%, 65%);
+  --light-gray: hsl(216, 12%, 84%);
+  --gainsboro: hsl(220, 13%, 91%);
+  --white_70: hsla(0, 0%, 100%, 0.7);
+  --gunmetal: hsl(215, 28%, 17%);
+  --manatee: hsl(218, 11%, 65%);
+  --mango: hsl(43, 96%, 56%);
+  --white: hsl(0, 0%, 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +35,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #fff;
+  color: var(--white);
 }
 
 .container-form {
@@ -33,18 +54,18 @@ body {
 
 .message {
   padding: 1rem;
-  color: white;
+  color: var(--white);
   background-color: rgb(51, 51, 51, 0.25);
 }
 
 .message h2 {
   font-size: 1.7rem;
   padding: 1rem 0;
-  color: white;
+  color: var(--white);
 }
 
 .message p {
-  color: white;
+  color: var(--white);
   font-weight: bold;
 }
 
@@ -93,7 +114,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border: solid thin white;
+  border: solid thin var(--white);
   border-radius: 50%;
   font-size: 1.5rem;
   transition: all 0.3s ease-in;
@@ -115,21 +136,21 @@ body {
   margin-bottom: 1.2rem;
   background-color: transparent;
   border: none;
-  border-bottom: white thin solid;
+  border-bottom: var(--white) thin solid;
   text-align: center;
   outline: none;
   padding: 0.1rem 0;
   font-size: 0.9rem;
-  color: white;
+  color: var(--white);
 }
 
-.formulario input[type="button"] {
+.formulario input[type="submit"] {
   width: 60%;
   margin: auto;
-  border: solid thin white;
+  border: solid thin var(--white);
   padding: 0.6rem;
   border-radius: 2rem;
-  background-color: white;
+  background-color: var(--white);
   font-weight: 600;
   margin-top: 3rem;
   font-size: 0.8rem;
