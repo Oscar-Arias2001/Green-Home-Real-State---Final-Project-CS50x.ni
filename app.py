@@ -55,7 +55,7 @@ def register():
             INSERT INTO Registros(email, contrasena) VALUES(?, ?)
             ''', email, password)
             db.execute('''
-                INSERT INTO Usuarios(nombre_completo, telefono, id_registro, domicilio, ciudad, )
+                INSERT INTO Usuarios(nombre_completo, telefono, id_registro, domicilio, ciudad, codigo_pais)
             ''')
         except:
             print('Algo ha salido mal')
