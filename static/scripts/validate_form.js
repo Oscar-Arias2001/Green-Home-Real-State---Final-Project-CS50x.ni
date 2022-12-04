@@ -1,7 +1,7 @@
 $("#register").on("submit", (event) => {
   event.preventDefault();
   $.ajax({
-    datos: {
+    data: {
       name: $("#name").val(),
       email: $("#email").val(),
       country: $("#country").val(),
@@ -11,9 +11,9 @@ $("#register").on("submit", (event) => {
     },
     type: "POST",
     url: "/register",
-  }).done((dato) => {
-    if (dato.error) {
-      alert(dato.error);
+  }).done((data) => {
+    if (data.error) {
+      alert(data.error);
     }
   });
 });
