@@ -4,16 +4,22 @@ $("#register").on("submit", (event) => {
     data: {
       name: $("#name").val(),
       email: $("#email").val(),
-      country: $("#country").val(),
+      city: $("#city").val(),
       address: $("#address").val(),
       phone: $("#phone").val(),
       password: $("#password").val(),
+      confirmation_password: $("#confirmation_password").val(),
     },
     type: "POST",
     url: "/register",
   }).done((data) => {
     if (data.error) {
-      alert(data.error);
+      swal({
+        title: "Error en Registro de Usuario",
+        text: data.error,
+        icon: "error",
+      });
     }
   });
 });
+

@@ -60,7 +60,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!--AJAX-->
+
+    <!--Ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
 
@@ -77,25 +78,52 @@
         <h2 class="create-account">Crear cuenta Green Home</h2>
 
         <p class="cuenta-gratis">Green Home Account</p>
-        <input type="text" placeholder="Nombre completo" name="name" id="name"/>
-        <input type="email" placeholder="Email" name="email" id="email"/>
-        <input list="pais" type="text" placeholder="País" name="country" id="country"/>
-        <datalist id="pais">
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          name="name"
+          id="name"
+        />
+        <input type="email" placeholder="Email" name="email" id="email" />
+        <input
+          list="city"
+          type="text"
+          placeholder="Ciudad"
+          name="city"
+          id="city"
+        />
+        <datalist id="city">
           <option value="N"></option>
         </datalist>
-        <input type="text" placeholder="Domicilio" name="address" id="address"/>
-        <input type="text" placeholder="Telefóno" name="phone" id="phone"/>
-        <input type="password" placeholder="Contraseña" name="password" id="password"/>
-        <input type="submit" value="Registrarse"/>
+        <input
+          type="text"
+          placeholder="Domicilio"
+          name="address"
+          id="address"
+        />
+        <input type="text" placeholder="Telefóno" name="phone" id="phone" />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          id="password"
+        />
+        <input
+          type="password"
+          placeholder="Confirmación de contraseña"
+          name="confirmation_password"
+          id="confirmation_password"
+        />
+        <input type="submit" value="Registrarse" />
       </form>
     </div>
     <div class="container-form sign-in">
-      <form class="formulario">
+      <form class="formulario" method="post" action="/log_in" id="login">
         <h2 class="create-account">Iniciar Sesión</h2>
-        <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Contraseña" />
-        <input type="submit" value="Iniciar Sesion" />
+        <p class="cuenta-gratis">¿Aún no tienes una cuenta? ➡️</p>
+        <input type="email" placeholder="Email" name="email_s" id="email_s"/>
+        <input type="password" placeholder="Contraseña" name="password_s" id="password_s"/>
+        <input type="submit" value="Iniciar Sesion"/>
       </form>
       <div class="welcome-back">
         <div class="message">
@@ -106,9 +134,12 @@
       </div>
     </div>
 
-
     <!-- JavaScript Code -->
     <script src="{{ url_for('static', filename='scripts/log_in.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/validate_form.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/validate_form1.js') }}"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
