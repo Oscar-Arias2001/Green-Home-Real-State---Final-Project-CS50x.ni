@@ -19,7 +19,8 @@ $("#register").on("submit", (event) => {
         text: data.error,
         icon: "error",
       });
+    } else if (data.correct) {
+      window.location.href = "/payment";
     }
   });
 });
-

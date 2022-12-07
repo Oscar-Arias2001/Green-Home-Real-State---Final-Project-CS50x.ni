@@ -16,7 +16,7 @@
     <meta name="copyright" content="Oscar Daniel Arias Guzmán." />
     <meta name="keywords" content="Real State, casa, casas, green, home" />
     <title>Green Home Real State - {% block title %}{% endblock %}</title>
-    <link rel="icon" href="page.ico" />
+    <link rel="icon" href="../static/images/page.ico" />
     <!-- Adding web page tab icon -->
 
     <!-- Place pageIco.ico in the root directory -->
@@ -144,7 +144,7 @@
           >
           </lord-icon>
           <a class="navbar-brand logo order-items" href="{{ url_for('index') }}">
-            <span class="no-margin">Green Home Real State</span>
+            <span class="no-margin" id="anchor">Green Home Real State</span>
           </a>
 
           <button
@@ -171,20 +171,20 @@
                 <a class="nav-link text-center" href="{{ url_for('about') }}">Acerca de</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-center" target="_blank" href="{{ url_for('contact') }}"
+                <a class="nav-link text-center" href="{{ url_for('contact') }}"
                   >Contacto</a
                 >
               </li>
 
               {% if not session["user_id"] %}
               <li class="nav-item">
-                <a class="nav-link text-center" target="_blank" href="{{ url_for('login') }}"
+                <a class="nav-link text-center" href="{{ url_for('login') }}"
                   >Log in</a
                 >
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link text-center" target="_blank" href="{{ url_for('login') }}"
+                <a class="nav-link text-center" href="{{ url_for('logout') }}"
                   >Log out</a
                 >
               </li>
@@ -209,12 +209,21 @@
           <div>
             <div class="row d-flex justify-content-around pt-5">
               <div class="col-3 ms-4 me-3 ">
+                {% if not session["user_id"] %}
                   <a
+                  style="width: 100px; height: 50px;"
+                  type="button"
+                  class="btn btn-dark border border-3 border-dark w-95 h-100 text-center" href="{{ url_for('login') }}"
+                  ><p class="h4">Mensaje</p></a
+                >
+                {% else %}
+                <a
                   style="width: 100px; height: 50px;"
                   type="button"
                   class="btn btn-dark border border-3 border-dark w-95 h-100 text-center" href="{{ url_for('contact') }}"
                   ><p class="h4">Mensaje</p></a
                 >
+                {% endif %}
               </div>
               <div class="col-3 ms-4 me-4">
                 <a
@@ -265,7 +274,7 @@
     <footer class="footer">
       <div class="container-footer">
         <div class="bar">
-          <a href="index.html" class="logo">
+          <a href="#anchor" class="logo">
             <h1 class="logo__name no-margin text-center">
               Green<span class="logo__bold"> Home</span>
             </h1>
@@ -273,13 +282,18 @@
 
           <nav class="nav-foot">
             <a href="{{ url_for('about') }}" class="nav-foot__link">Nosotros</a>
+            {% if not session["user_id"] %}
+            <a href="{{ url_for('login') }}" class="nav-foot__link">Propiedades</a>
+            <a href="{{ url_for('login') }}" class="nav-foot__link">Contacto</a>
+            {% else %}
             <a href="{{ url_for('properties') }}" class="nav-foot__link">Propiedades</a>
             <a href="{{ url_for('contact') }}" class="nav-foot__link">Contacto</a>
+            {% endif %}
           </nav>
         </div>
         <p class="p-foot">
           Copyright &copy; Crafted by
-          <a class="text-white" href="https://mdbootstrap.com/"
+          <a class="text-white" href="{{ url_for('about') }}"
             >Green Home Real State</a
           >
           - All Rights Reserved 2022.
@@ -304,10 +318,7 @@
     <!-- JavaScript Code -->
     <script src="{{ url_for('static', filename='scripts/swiper-bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/scroll_top.js') }}"></script>
-    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/swiper.js') }}"></script>
 
-    <!-- Insertando widget de accesibilidad 
-    <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "idtDhWyQBz");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
-     end userway widget-->
   </body>
 </html>

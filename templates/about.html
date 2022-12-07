@@ -65,20 +65,26 @@ content%}
             <h2 class="text-center">Encuentra el mejor lugar para vivir</h2>
             <p class="text-center">Green Home Real State es la manera más fácil de vender tu propiedad o de encontrar el hogar de tus sueños. Queremos apoyarte en este proceso por ello somos la solución más rápida y eficiente en comercialización de bienes inmuebles.</p>
           <div class="block">
-            <a class="neon-butt text-center" href="">
+            {% if not session["user_id"] %}
+            <a class="neon-butt text-center" href="{{ url_for('login') }}">
                 <span id="span1"></span>
                 <span id="span2"></span>
                 <span id="span3"></span>
                 <span id="span4"></span>
                 Contáctanos
             </a>
+            {% else %}
+            <a class="neon-butt text-center" href="{{ url_for('contact') }}">
+              <span id="span1"></span>
+              <span id="span2"></span>
+              <span id="span3"></span>
+              <span id="span4"></span>
+              Contáctanos
+          </a>
+          {% endif %}
           </div>
         </div>
       </div>
   </section>
-
-
-
-
-
+  
 {% endblock %}

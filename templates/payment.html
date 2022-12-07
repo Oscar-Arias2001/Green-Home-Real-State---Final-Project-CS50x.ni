@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- WebSite Meta Information -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Mobile -->
+    <meta name="robots" content="index,follow" />
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Green Home Real State, we are a web service of easy access to the general public, with the purpose of being a trusted intermediary to facilitate the process of buying and selling real estate in Nicaragua."
+    />
+    <meta name="author" content="Oscar Daniel Arias Guzmán." />
+    <meta name="copyright" content="Oscar Daniel Arias Guzmán." />
+    <meta name="keywords" content="Real State, casa, casas, green, home" />
+    <title>Green Home Real State - Planes de Pago</title>
+    <link rel="icon" href="../static/images/page.ico" />
+
+    <!-- Adding the normalize tool for correct rendering in a variety of browsers -->
+    <link
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+      rel="preload"
+      as="style"
+    />
+    <!-- Preload -->
+    <link
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+      rel="stylesheet"
+    />
+
+    <!-- Adding styles to the web site with the css language -->
+    <link
+      href="{{ url_for('static', filename='css/payment.css') }}"
+      rel="preload"
+      as="style"
+    />
+    <!-- Preload -->
+    <link
+      href="{{ url_for('static', filename='css/payment.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="ub">
+      <div class="custom">
+        <!-- here goes the html snippet -->
+        <form action="/payment" id="payment" method="post">
+          <div class="plans">
+            <div class="plan">
+              <input
+                checked
+                id="monthly"
+                name="plan"
+                type="radio"
+                value="{{ plans[1]['id_plan'] }}"
+              />
+              <label for="monthly">
+                <span class="name">
+                  <span>Prefiero ir pagando mes&nbsp;a&nbsp;mes</span>
+                </span>
+                <div class="price">
+                  <span class="price"
+                    >{{ plans[1]['precio'] }}
+                    <span class="small">usd</span></span
+                  >
+                </div>
+              </label>
+            </div>
+            <div class="plan">
+              <input
+                id="annual"
+                name="plan"
+                type="radio"
+                value="{{ plans[0]['id_plan'] }}"
+              />
+              <label for="annual">
+                <span class="name">
+                  <span>Quiero ahorrar más y pagar cada&nbsp;año</span>
+                </span>
+                <div class="price">
+                  <span class="price"
+                    >{{ plans[0]['precio'] }}
+                    <span class="small">usd</span></span
+                  >
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="secure_zone">
+            <fieldset>
+              <legend>Datos de pago</legend>
+              <div class="field">
+                <label for="credit_card_number">Tarjeta de crédito</label>
+                <div class="credit_card_number_wrapper">
+                  <input
+                    data-stripe="number"
+                    id="credit_card_number"
+                    name="credit_card_number"
+                    type="tel"
+                  />
+                  <label class="card_logos" for="credit_card_number"></label>
+                </div>
+              </div>
+              <div class="field half">
+                <label for="credit_card_expiry">Caducidad</label>
+                <input data-stripe="cvc" id="credit_card_expiry" name="cvc" />
+                <input
+                  data-stripe="exp-month"
+                  id="credit_card_expiry_month"
+                  name="credit_card_expiry_month"
+                  type="hidden"
+                />
+                <input
+                  data-stripe="exp-year"
+                  id="credit_card_expiry_year"
+                  name="credit_card_expiry_year"
+                  type="hidden"
+                />
+              </div>
+              <div class="field half">
+                <label for="cvc">CVC</label>
+                <input data-stripe="cvc" id="cvc" name="cvc" type="tel" />
+              </div>
+            </fieldset>
+            <a class="stripe_info" href="https://stripe.com/help/security">
+              <span>Pago 100% Seguro</span>
+              <img
+                alt="Información sobre seguridad de Stripe"
+                src="data:image/png;base64,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"
+              />
+            </a>
+          </div>
+          <button type="submit">RENOVAR MI CUENTA</button>
+        </form>
+      </div>
+    </div>
+    <div class="lp-pom-form">
+      <form action="//esaborit4code.ngrok.com/design" method="POST">
+        <input name="pageId" type="hidden" value="codepencodepencodepen" />
+        <input name="pageVariant" type="hidden" value="cdpn" />
+        <input name="dummy" type="checkbox" value="" />
+      </form>
+    </div>
+    <!-- partial -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v2/"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script> -->
+    <script src="{{ url_for('static', filename='scripts/payment.js') }}"></script>
+  </body>
+</html>
