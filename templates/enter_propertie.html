@@ -8,38 +8,63 @@ block content%}
     <div class="contact-wrapper animate__animated animate__bounceInUp">
       <div class="contact-form p-5">
         <h3>Ingreso de Inmuebles</h3>
-        <form class="" action="">
+        <form class="" action="/enter_propertie" method="post" enctype="multipart/form-data">
           <p>
-            <label for="fullname">Tipo Inmueble</label>
-            <input type="text" name="fullname" id="fullname" />
+            <label for="inmueble">Tipo Inmueble</label>
+            <!-- <input type="text" name="fullname" id="fullname" /> -->
+            <select name="inmueble">
+              {% for imb in tipo_inmueble%}
+              <option value="{{ imb['codigo_tipo'] }}">
+                {{ imb["descripcion"]}}
+              </option>
+              {% endfor %}
+            </select>
           </p>
           <p>
-            <label for="email">Dirección</label>
-            <input type="email" name="email" id="email" />
+            <label for="tipo_transaccion">Tipo Transaccion</label>
+            <!-- <input type="text" name="fullname" id="fullname" /> -->
+            <select name="tipo_transaccion">
+              {% for trans in tipo_trans %}
+              <option value="{{ trans['codigo_transaccion'] }}">
+                {{ trans['descripcion']}}
+              </option>
+              {% endfor %}
+            </select>
           </p>
           <p>
-            <label for="phone">Ciudad</label>
-            <input type="tel" name="phone" id="phone" />
+            <label for="city">Ciudad</label>
+            <!-- <input type="tel" name="city" id="phone" /> -->
+            <select name="city">
+              {% for city in cities %}
+              <option value="{{ city['codigo_ciudad'] }}">
+                {{ city["nombre"]}}
+              </option>
+              {% endfor %}
+            </select>
           </p>
           <p>
-            <label for="affair">Teléfono</label>
-            <input type="text" name="affair" id="affair" />
+            <label for="phone">Teléfono</label>
+            <input type="text" name="phone" id="affair" />
           </p>
           <p>
             <label for="price">Precio</label>
-            <input type="tel" name="price" id="price" />
+            <input type="number" name="price" id="price" step="0.1" />
           </p>
           <p>
             <label for="moneda">Moneda</label>
             <input type="text" name="moneda" id="moneda" />
           </p>
           <p class="block">
-            <label for="imagenes">Imágenes de inmueble</label>
-            <input type="file" name="imagenes" id="imagenes" />
+            <label for="address">Dirección</label>
+            <input type="text" name="address" id="email" />
           </p>
           <p class="block">
-            <label>Descripción</label>
-            <textarea name="message" rows="3"></textarea>
+            <label for="images">Imágenes de inmueble</label>
+            <input type="file" name="images" id="imagenes" />
+          </p>
+          <p class="block">
+            <label for="description">Descripción</label>
+            <textarea name="description" rows="3"></textarea>
           </p>
           <p class="block">
             <button type="submit">Subir Propiedad</button>

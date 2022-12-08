@@ -3,6 +3,10 @@ from flask_session import Session
 from cs50 import SQL
 # from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+from functools import wraps
+import cloudinary
+import cloudinary.uploader
+
 
 # Configure applicatio
 app = Flask(__name__)
@@ -18,9 +22,39 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///GreenHome.db")
 
+cloudinary.config( 
+  cloud_name = "dfiqsvrpz", 
+  api_key = "644192579483865", 
+  api_secret = "6OVj6KW2_5qgzDdM6n6BzJChM8o" 
+)
+
+def login_required(f):
+    """
+    Decorate routes to require login.
+
+    https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user_id") is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    properties = db.execute('''
+        SELECT Propiedades.*, Tipo_Inmueble.descripcion AS tipoinmueble, t.descripcion AS tipotransaccion, Ciudad.nombre AS ciudad FROM Propiedades
+        INNER JOIN Tipo_Inmueble ON Tipo_Inmueble.codigo_tipo = Propiedades.tipo_inmueble
+        INNER JOIN Tipo_Transaccion AS t ON t.codigo_transaccion =  Propiedades.tipo_transaccion
+        INNER JOIN Ciudad ON Ciudad.codigo_ciudad =  Propiedades.codigo_ciudad
+        ORDER BY codigo_propiedad DESC LIMIT 6 
+    ''')
+
+
+
+
+    return render_template("index.html", properties = properties)
 
 
 @app.route("/register", methods=["GET","POST"])
@@ -86,35 +120,81 @@ def register():
     else:
         return render_template("log_in.html")
 
-
-
-
-
-
-
-
-
-
-
 @app.route("/about")
 def about():
     return render_template("about.html")
 
 @app.route("/contact")
+@login_required
 def contact():
     return render_template("contact.html")
 
 @app.route("/properties")
+@login_required
 def properties():
     return render_template("properties.html")
 
-@app.route("/enter_propertie")
+@app.route("/enter_propertie", methods=["GET", "POST"])
+@login_required
 def enter_propertie():
-    return render_template("enter_propertie.html")
+    if request.method == "POST":
+        
+        inmueble = int(request.form.get("inmueble"))
+        address = request.form.get("address")
+        city = int(request.form.get("city"))
+        phone = request.form.get("phone")
+        price = request.form.get("price")
+        moneda = request.form.get("moneda")
+        images = request.files["images"]
+        
+        description = request.form.get("description")
+        tipo_transaccion = int(request.form.get("tipo_transaccion"))
+        img_db = cloudinary.uploader.upload(images)
+        # print("---------------------------")
+        # print(a)
+        susc = db.execute('''
+        SELECT id_usuario_suscripcion from Usuarios_Suscripcion where id_registro = :id''', 
+        id=session['user_id'])[0]["id_usuario_suscripcion"]
+        db.execute('''
+            INSERT INTO Propiedades (direccion, precio, moneda, codigo_ciudad, tipo_inmueble, codigo_usuario_suscripcion, estado, imagen, descripcion, tipo_transaccion) VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?, ?)
+        ''', address, price, moneda, city, inmueble, susc, img_db["url"], description, tipo_transaccion)
+        
+        return redirect("/")
+    else:
+        tipo_inmueble = db.execute('''
+            SELECT * FROM Tipo_Inmueble
+        ''')
+        cities = db.execute('''
+            SELECT * FROM Ciudad
+        ''')
+        tipo_trans = db.execute('''
+            SELECT * FROM Tipo_Transaccion
+        ''')
+
+        return render_template("enter_propertie.html", tipo_inmueble = tipo_inmueble, cities = cities, tipo_trans = tipo_trans)
+
+
+
+
+
+
+
+
 
 @app.route("/profile")
+@login_required
 def profile():
-    return render_template("profile.html")
+    data_first = db.execute('''
+        SELECT * FROM Usuarios WHERE codigo_usuario = ?
+    ''', session["user_id"])
+    data_second = db.execute('''
+        SELECT * FROM Registros WHERE id_registro = ?
+    ''', session["user_id"])
+    data_third = db.execute('''
+        SELECT nombre FROM Ciudad WHERE codigo_ciudad = ?
+    ''', data_first[0]["codigo_ciudad"])
+    print(data_third)
+    return render_template("profile.html", data_first = data_first, data_second = data_second, data_third = data_third)
 
 
 @app.route("/log_in", methods=["POST", "GET"])
@@ -161,10 +241,6 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
-
-
-
 
 @app.route("/payment", methods=["POST", "GET"])
 def payment():

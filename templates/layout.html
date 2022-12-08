@@ -52,16 +52,6 @@
     <!-- Preload -->
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- Adding styles to the web site with the css language -->
-    <link href="{{ url_for('static', filename='css/profile.css') }}" rel="preload" as="style" />
-    <!-- Preload -->
-    <link href="{{ url_for('static', filename='css/profile.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- Adding styles to the web site with the css language -->
-    <link href="{{ url_for('static', filename='css/responsive_profile.css') }}" rel="preload" as="style" />
-    <!-- Preload -->
-    <link href="{{ url_for('static', filename='css/responsive_profile.css') }}" rel="stylesheet" type="text/css" />
-
     <!-- Adding fonts styles from google fonts -->
     <link
       rel="preload"
@@ -126,7 +116,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- ===== ===== Remix Font Icons Cdn ===== ===== -->
-    <link rel="stylesheet" href="fonts/remixicon.css">
+    <!-- <link rel="stylesheet" href="fonts/remixicon.css"> -->
 
   </head>
   <body>
@@ -183,6 +173,16 @@
                 >
               </li>
               {% else %}
+              <li class="nav-item">
+                <a class="nav-link text-center" href="{{ url_for('enter_propertie') }}"
+                  >Publicar</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-center" href="{{ url_for('profile') }}"
+                  >Mi Perfil</a
+                >
+              </li>
               <li class="nav-item">
                 <a class="nav-link text-center" href="{{ url_for('logout') }}"
                   >Log out</a

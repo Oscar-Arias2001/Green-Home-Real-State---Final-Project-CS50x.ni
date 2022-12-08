@@ -1,5 +1,33 @@
+/* ===== =====  Poppins Google Font  ===== =====  */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+/* ===== =====>>  Universal Selector  <<===== =====  */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== =====>>  Body Font Size  <<===== =====  */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /*Box Model Hack By Paul Irish*/
+}
+
 /* ===== =====>> Css Variables  <<===== =====  */
 :root {
+  /* Fonts */
+  --headingfont: "PT Sans", sans-serif;
+  --aditional: "Open Sans", sans-serif;
+  --paragraphfont: "League Spartan", sans-serif;
+  --testimonialfont: "Poppins", sans-serif;
+
   /* =====>>  Font Color  <<===== */
   --f1-color: #fff;
   --f2-color: #000;
@@ -7,6 +35,25 @@
   --f4-color: rgba(0, 0, 0, 0.6);
   --f5-color: #0099cc;
   --f6-color: #88cee6;
+
+  /* Colors */
+  --g_primary: #21f55c;
+  --g_secondary: hsl(142, 76%, 36%);
+  --g_tertiary: hsl(142, 72%, 29%);
+
+  /* Other Colors */
+  --footer-dark: #000000;
+  --oxford-blue: hsl(224, 34%, 13%);
+  --maximum-red: hsl(0, 72%, 51%);
+  --mint-cream: #f2e98a;
+  --cadet-gray: hsl(215, 20%, 65%);
+  --light-gray: hsl(216, 12%, 84%);
+  --gainsboro: hsl(220, 13%, 91%);
+  --white_70: hsla(0, 0%, 100%, 0.7);
+  --gunmetal: hsl(215, 28%, 17%);
+  --manatee: hsl(218, 11%, 65%);
+  --mango: hsl(43, 96%, 56%);
+  --white: hsl(0, 0%, 100%);
 
   /* =====>>  Background Color  <<===== */
   --bg1-color: #fff;
@@ -59,12 +106,52 @@
 }
 
 /* ===== =====>>  Body Main-Background Css  <<===== =====  */
+h1,
+h2,
+h3 {
+  font-family: var(--headingfont);
+  margin: 0 0 3.5rem 0;
+}
+a {
+  text-decoration: none;
+  color: var(--footer-dark);
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.45rem;
+  gap: 3rem; /*New form in CSS for separation*/
+}
+
+.order-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-items > span {
+  font-size: 2rem;
+  font-family: var(--headingfont);
+}
+
+.order-items > span:hover {
+  color: var(--g_primary);
+}
+
 .main_bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: url("../images/back-profile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  z-index: -1;
 }
 
 /* ===== =====>>  Main-Container Css  <<===== =====  */
@@ -79,6 +166,9 @@
     "work_skills timeline_about";
   width: 85%;
   height: 90vh;
+  background: var(--glass-bg);
+  padding: var(--p-1-5);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 25px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== =====>>  Container Cards Grid-Area Css Start  <<===== =====  */
@@ -175,20 +265,20 @@
   background: var(--bg6-color);
 }
 
-.work_skills .work .primary-t,
-.work_skills .work .secondary-t {
+.work_skills .work .primary,
+.work_skills .work .secondary {
   position: relative;
 }
 
-.work_skills .work .primary-t h1,
-.work_skills .work .secondary-t h1 {
+.work_skills .work .primary h1,
+.work_skills .work .secondary h1 {
   font-size: var(--l-fs);
   color: var(--f3-color);
   margin-bottom: var(--m-0-6);
 }
 
-.work_skills .work .primary-t span,
-.work_skills .work .secondary-t span {
+.work_skills .work .primary span,
+.work_skills .work .secondary span {
   position: absolute;
   top: 0;
   right: 3rem;
@@ -200,8 +290,8 @@
   border-radius: 0.4rem;
 }
 
-.work_skills .work .primary-t p,
-.work_skills .work .secondary-t p {
+.work_skills .work .primary p,
+.work_skills .work .secondary p {
   margin-bottom: var(--m-1-8);
   font-size: var(--m-fs);
   color: rgba(0, 0, 0, 0.6);

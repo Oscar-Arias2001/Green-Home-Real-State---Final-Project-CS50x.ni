@@ -44,7 +44,7 @@
 --     FOREIGN KEY(codigo_propiedad) REFERENCES Propiedades(codigo_propiedad)
 --     FOREIGN KEY(codigo_interesado) REFERENCES Usuarios(codigo_usuario)
 -- );
-
+-- DROP TABLE Propiedades;
 -- CREATE TABLE "Tipo_Transaccion"(
 --     codigo_transaccion INTEGER PRIMARY KEY AUTOINCREMENT,
 --     descripcion TEXT NOT NULL
@@ -67,10 +67,14 @@
 --     moneda TEXT NOT NULL,
 --     codigo_ciudad INTEGER,
 --     tipo_inmueble INTEGER,
---     codigo_usuario_suscripcion INTEGER,
+--     codigo_usuario_suscripcion INTEGER NOT NULL,
+--     tipo_transaccion INTEGER NOT NULL,
 --     estado TEXT NOT NULL,
 --     FOREIGN KEY(codigo_ciudad) REFERENCES Ciudad(codigo_ciudad),
 --     FOREIGN KEY(tipo_inmueble) REFERENCES Tipo_Inmueble(codigo_tipo),
---     FOREIGN KEY(codigo_usuario_suscripcion) REFERENCES Usuarios_Suscripcion(id_usuario_suscripcion)
+--     FOREIGN KEY(codigo_usuario_suscripcion) REFERENCES Usuarios_Suscripcion(id_usuario_suscripcion),
+--     FOREIGN KEY(tipo_transaccion) REFERENCES Tipo_Transaccion(codigo_transaccion)
 -- );
--- ALTER TABLE Propiedades ADD imagen TEXT NOT NULL;
+
+ALTER TABLE Propiedades ADD COLUMN imagen TEXT NOT NULL; 
+ALTER TABLE Propiedades ADD COLUMN descripcion TEXT NOT NULL; 
