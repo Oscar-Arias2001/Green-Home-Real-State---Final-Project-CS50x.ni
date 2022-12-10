@@ -278,7 +278,31 @@ def profile():
 def about():
     return render_template("about.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 @login_required
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        fullname = request.form['fullname']
+        email = request.form['email']
+        phone = request.form['phone']
+        asunto = request.form['asunto']
+
+        # Ensure field was submitted
+        if not fullname or fullname == "":
+            return jsonify({"error" : "Ingrese un nombre válido"})
+
+        # Ensure field was submitted
+        if not email or email == "":
+            return jsonify({"error" : "Ingrese un email válido"})
+
+        # Ensure field was submitted
+        if not phone or phone == "":
+            return jsonify({"error" : "Ingrese una número de teléfono válido"})
+
+        # Ensure field was submitted
+        if not asunto or asunto == "":
+            return jsonify({"error" : "Ingrese una asunto válido"})
+
+        return jsonify({"correct" : "Proceso de contacto ejecutado con éxito."})
+    else:
+        return render_template("contact.html")
