@@ -1,7 +1,7 @@
 {% extends "layout.html" %} {% block title%}Propiedades{% endblock %} {% block
 content%}
 
-<div class="contenedor_about row d-flex justify-content-center align-items-center">
+<div class="contenedor_about row d-flex justify-content-center align-items-center animate__animated animate__zoomInDown">
   <h1 class="text-center mt-3 mb-1">Un proceso simple y sencillo</h1>
   <div class="card m-3 p-3" style="width: 28rem; height: 57rem">
     <div class="overflow">
@@ -59,18 +59,57 @@ content%}
 
 <div class="container-search">
   <div class="box">
-    <select name="select">
-      <option value="value1">Ubicación</option>
-    </select>
-    <select name="select">
-      <option value="Tipo Propiedad">Tipo Propiedad</option>
-    </select>
-    <select name="select">
-      <option value="value1">Rango Precio</option>
-    </select>
+    <input list="propiedades" type="text" id="buscador" placeholder="Ciudad">
+    <datalist id="propiedades">
+      {% for dat1 in props %}
+        <option value="{{ dat1['ciudad'] }}">
+      {% endfor %}
+    </datalist>
+
+    <input list="prop_type" type="text" id="buscador" placeholder="Tipo de Inmueble">
+    <datalist id="prop_type">
+      {% for dat2 in props_type %}
+        <option value="{{ dat2['descripcion'] }}">
+      {% endfor %}
+    </datalist>
+
+    <input list="prop_type1" type="text" id="buscador" placeholder="Tipo de Transacción">
+    <datalist id="prop_type1">
+      {% for dat3 in props_type1 %}
+        <option value="{{ dat3['descripcion'] }}">
+      {% endfor %}
+    </datalist>
+
+    <!-- <select name="select">
+      {% for dat2 in props_type %}
+      <option value="{{ dat2['codigo_tipo'] }}">{{ dat2['descripcion'] }}</option>
+      {% endfor %}
+    </select> -->
   </div>
-  <button type="button" class="call-butt1">Buscar</button>
+  <!-- <button type="button" class="call-butt1">Buscar</button> -->
 </div>
 </div>
+
+<div class="contenedor_about row d-flex justify-content-center align-items-center">
+  {% for asset in props %}
+  <div class="card m-3" style="width: 30rem;">
+    <div class="overflow">
+      <img src="{{ asset['imagen'] }}" class="card-img-top" alt="Imagen Propiedad" loading="lazy">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ asset['tipoinmueble'] }}</h5>
+      <p class="card-text">{{ asset['descripcion'] }}</p>
+      <p class="card-text text-center" style="color: green;">{{ asset['ciudad'] }}</p>
+      <p class="card-text text-center" style="color: hsl(142, 72%, 29%); font-weight: bold;">{{ asset['moneda'] }} {{ asset['precio'] }}</p>
+      <p class="card-text text-center" style="color: darkcyan; font-weight: bold;">{{
+        asset['tipotransaccion'] }}</p>
+      <div class="d-flex justify-content-center">
+        <a href="/propertie_info/{{asset.codigo_propiedad}}" class="btn btn-success" style="font-weight: bold; font-size: 15px;">Detalles</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
 
 {% endblock %}

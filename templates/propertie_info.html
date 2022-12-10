@@ -1,0 +1,147 @@
+{% extends "layout.html" %} {% block title%}Inicio{% endblock %} {% block
+content%}
+
+<section class="container-fluid">
+  <div class="nosotros mt-5">
+    <img
+      class="nosotros__imagen"
+      src="{{ prop_info[0]['imagen'] }}"
+      alt="Imagen banner."
+      loading="lazy"
+    />
+    <div class="nosotros__contenido">
+      <h1 class="text-center m-3" style="font-size: 5rem">
+        Información de <span style="color: green">Inmueble</span>
+      </h1>
+      <p class="text-start p-2">
+        <span style="color: green; font-weight: bold">Tipo de Inueble:</span> {{
+        prop_info[0]['tipoinmueble'] }}
+      </p>
+      <p class="text-start p-2">
+        <span style="color: green; font-weight: bold"
+          >Ubicación de Inmueble:</span
+        >
+        {{ prop_info[0]['ciudad'] }}
+      </p>
+      <p class="text-start p-2">
+        <span style="color: green; font-weight: bold"
+          >Descripción de Inmueble:</span
+        >
+        {{ prop_info[0]['descripcion'] }}
+      </p>
+      <p class="text-start p-2">
+        <span style="color: green; font-weight: bold">Precio:</span> {{
+        prop_info[0]['moneda'] }} {{ prop_info[0]['precio'] }}
+      </p>
+      <p class="text-start p-2">
+        <span style="color: green; font-weight: bold"
+          >Tipo de transacción comercial:</span
+        >
+        {{ prop_info[0]['tipotransaccion'] }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<div>
+  <h1 class="text-center m-3" style="font-size: 4rem">
+    Información de <span style="color: green">Vendedor</span>
+  </h1>
+  <div class="body-profile-card">
+    <div class="profile-card">
+      <div class="image">
+        <img src="../static/images/profile.png" alt="" class="profile-img" />
+      </div>
+
+      <div class="text-data">
+        <span class="name">{{ prop_info[0]['nombre_completo'] }}</span>
+        <span class="name">{{ prop_info[0]['email'] }}</span>
+        <span class="job"
+          >ID GreenHome Account: {{ prop_info[0]['codigo_usuario'] }}</span
+        >
+      </div>
+
+      <div class="media-buttons">
+        <a href="#" style="background: #4267b2" class="link">
+          <i class="bx bxl-facebook"></i>
+        </a>
+        <a href="#" style="background: #1da1f2" class="link">
+          <i class="bx bxl-twitter"></i>
+        </a>
+        <a href="#" style="background: #e1306c" class="link">
+          <i class="bx bxl-instagram"></i>
+        </a>
+        <a href="#" style="background: #ff0000" class="link">
+          <i class="bx bxl-youtube"></i>
+        </a>
+      </div>
+
+      <div class="buttons">
+        <a
+          href="mailto:{{prop_info[0]['email']}}?Subject=Hola%20estoy%20interesado%20en%20tú%20inmueble"
+          class="button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-mail-forward"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#000000"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"
+            />
+            <path d="M3 6l9 6l9 -6" />
+            <path d="M15 18h6" />
+            <path d="M18 15l3 3l-3 3" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/+505{{ prop_info[0]['telefono'] }}?text=Cont%C3%A1ctame%20para%20m%C3%A1s%20informaci%C3%B3n"
+          class="button"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-phone-check"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#000000"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+            <path d="M15 6l2 2l4 -4" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="analytics">
+        <div class="data">
+          <i class="bx bx-heart"></i>
+          <span class="number">60k</span>
+        </div>
+        <div class="data">
+          <i class="bx bx-message-rounded"></i>
+          <span class="number">20k</span>
+        </div>
+        <div class="data">
+          <i class="bx bx-share"></i>
+          <span class="number">12k</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

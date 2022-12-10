@@ -15,6 +15,7 @@
 -- );
 -- UPDATE Suscripcion SET tipo_plan = "Anual" WHERE id_plan = 1;
 -- UPDATE Suscripcion SET tipo_plan = "Mensual" WHERE id_plan = 2;
+-- UPDATE Propiedades SET tipo_transaccion = 1 WHERE descripcion = "Edificio en alquiler, disponible en Managua, condición 10/10, cuota mensual.";
 
 -- CREATE TABLE "Usuarios"(
 --     codigo_usuario INTEGER PRIMARY KEY,
@@ -76,5 +77,7 @@
 --     FOREIGN KEY(tipo_transaccion) REFERENCES Tipo_Transaccion(codigo_transaccion)
 -- );
 
-ALTER TABLE Propiedades ADD COLUMN imagen TEXT NOT NULL; 
-ALTER TABLE Propiedades ADD COLUMN descripcion TEXT NOT NULL; 
+-- ALTER TABLE Propiedades ADD COLUMN imagen TEXT NOT NULL; 
+-- ALTER TABLE Propiedades ADD COLUMN descripcion TEXT NOT NULL; 
+
+-- DELETE FROM Propiedades WHERE codigo_propiedad = 34;
